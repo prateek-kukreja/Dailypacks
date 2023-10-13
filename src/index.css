@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply box-border scroll-smooth m-0 p-0;
+}
+
+.container {
+  @apply max-w-[1200px] mx-auto my-0 px-[19px] py-0;
+}
