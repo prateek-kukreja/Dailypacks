@@ -1,6 +1,7 @@
 import Banner from "../components/Banner";
 import BannerReverse from "../components/BannerReverse";
 import Hero from "../components/Hero";
+import Newsletter from "../components/Newsletter";
 import ProudProducts from "../components/ProudProducts";
 import TrendingSlider from "../components/TrendingSlider";
 import Banner1 from "../images/banner/scoot-backpack.png";
@@ -22,6 +23,7 @@ function Home() {
         text="Made for effortless, everyday routines, Drawstring prioritises comfort, modern functionality and quick access."
         img={Banner2}
       />
+      <Newsletter />
     </>
   );
 }
