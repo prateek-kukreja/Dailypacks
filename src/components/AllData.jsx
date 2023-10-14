@@ -63,14 +63,14 @@ export const items = [
   },
   {
     id: 7,
-    category: "idyllTote",
+    category: "totebag",
     img: WhiteIdyllTote,
     name: "White Idyll Tote",
     price: 3499,
   },
   {
     id: 8,
-    category: "idyllTote",
+    category: "totebag",
     img: BlueIdyllTote,
     name: "Blue Idyll Tote",
     price: 3999,
