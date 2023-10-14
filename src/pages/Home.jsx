@@ -1,8 +1,10 @@
 import Banner from "../components/Banner";
+import BannerReverse from "../components/BannerReverse";
 import Hero from "../components/Hero";
 import ProudProducts from "../components/ProudProducts";
 import TrendingSlider from "../components/TrendingSlider";
 import Banner1 from "../images/banner/scoot-backpack.png";
+import Banner2 from "../images/banner/way-backpack.png";
 
 function Home() {
   return (
@@ -15,6 +17,11 @@ function Home() {
         img={Banner1}
       />
       <TrendingSlider />
+      <BannerReverse
+        title="PLAY, COMFORT AND QUOTIDIAN EASE"
+        text="Made for effortless, everyday routines, Drawstring prioritises comfort, modern functionality and quick access."
+        img={Banner2}
+      />
     </>
   );
 }
