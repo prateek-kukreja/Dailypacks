@@ -1,7 +1,7 @@
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
 import ProudProducts from "../components/ProudProducts";
-import Banner1 from "../images/backpacks/banner/scoot-backpack.png";
+import Banner1 from "../images/banner/scoot-backpack.png";
 
 function Home() {
   return (
