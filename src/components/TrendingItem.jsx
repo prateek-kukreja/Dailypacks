@@ -10,7 +10,10 @@ function TrendingItem() {
           key={item.id}
           className="outline-2 outline outline-color hover:outline-hover cursor-pointer transition-all duration-[0.15s] ease[ease-in] max-w-[13.125rem]"
         >
-          <Link onClick={() => window.top(0, 0)} to="">
+          <Link
+            onClick={() => window.top(0, 0)}
+            to={`categories/product/${item.id}`}
+          >
             <div>
               <img src={item.img} alt="product" className="max-w-[13.125rem]" />
             </div>

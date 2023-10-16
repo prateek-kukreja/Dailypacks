@@ -26,7 +26,7 @@ function App() {
           <Route path="weekender" element={<Weekender />} />
           <Route path="way" element={<Way />} />
         </Route>
-        <Route path="productpage" element={<ProductPage />} />
+        <Route path="categories/product/:id" element={<ProductPage />} />
       </Routes>
     </>
   );

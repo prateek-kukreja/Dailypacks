@@ -1,20 +1,25 @@
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
+import { items } from "../components/AllData";
 
 function ProductPage() {
+  const { id } = useParams();
+  const item = items.filter((item) => item.id === parseInt(id));
+
   return (
     <>
       <div className="pt-4">
         <div className="container">
           <div className="mb-14 md:mb-24 flex flex-col md:flex-row gap-8 relative">
-            <h3 className="absolute text-center font-bold left-1/2 top-1 -translate-x-1/2 text-4xl w-80 md:w-auto">
-              Backpack Name
+            <h3 className="absolute text-center font-bold left-1/2 top-1 -translate-x-1/2 text-3xl w-80 md:w-auto">
+              {item[0].name}
             </h3>
 
             <div className="w-full md:w-6/12 h- pt-12">
               <div className="w-full h-3/4 flex justify-center">
                 <img
-                  src=""
+                  src={item[0].img}
                   alt="product"
                   className="w-3/4 h-full object-cover"
                 />
@@ -23,11 +28,7 @@ function ProductPage() {
 
             <div className="w-full md:w-6/12 h-full bg-[#E5E5E5] text-lg pt-7 md:pt-40 px-5 md:px-12 pb-10 md:pb-20">
               <p className="text-xl mb-5 sm:mb-12 leading-normal">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Libero, voluptates neque! Mollitia corporis nostrum impedit
-                perspiciatis neque nisi possimus distinctio aliquid a commodi,
-                nihil ut iure veniam id quas maxime velit quo minima. Aliquid
-                deserunt ratione libero necessitatibus magnam quo.
+                {item[0].desc}
               </p>
               <div className="flex flex-col sm:flex-row justify-between md:mb-12 font-semibold items-center text-2xl gap-5 sm:gap-0">
                 <p>Quantity</p>
@@ -40,7 +41,7 @@ function ProductPage() {
                     +
                   </button>
                 </div>
-                <p className="">₹____</p>
+                <p className="">{item[0].price}</p>
               </div>
               <div className="flex justify-center gap-5">
                 <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
@@ -56,15 +57,15 @@ function ProductPage() {
           <div className="flex flex-col md:flex-row gap-5 md:gap-7 justify-between w-full h-24 mb-72 md:mb-24">
             <div className="bg-[#E5E5E5] w-full flex flex-col justify-between p-5">
               <p className="text-xl font-semibold pb-2">Colour:</p>
-              <p className="text-base"></p>
+              <p className="text-base">{item[0].colour}</p>
             </div>
             <div className="bg-[#E5E5E5] w-full flex flex-col justify-between p-5">
               <p className="text-xl font-semibold pb-2">Material:</p>
-              <p className="text-base"></p>
+              <p className="text-base">{item[0].material}</p>
             </div>
             <div className="bg-[#E5E5E5] w-full flex flex-col justify-between p-5">
               <p className="text-xl font-semibold pb-2">Dimensions:</p>
-              <p className="text-base"></p>
+              <p className="text-base">{item[0].dimensions}</p>
             </div>
           </div>
         </div>

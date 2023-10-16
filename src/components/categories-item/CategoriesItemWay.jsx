@@ -13,7 +13,10 @@ function CategoriesItemWay() {
               key={item.id}
               className="-outline-offset-2 transition-all duration-[0.15s] ease-[ease-in] cursor-pointer outline-2 outline outline-color hover:outline-hover rounded-sm"
             >
-              <Link onClick={() => window.top(0, 0)} to="">
+              <Link
+                onClick={() => window.top(0, 0)}
+                to={`/categories/product/${item.id}`}
+              >
                 <div>
                   <img src={item.img} className="w-full" />
                 </div>
