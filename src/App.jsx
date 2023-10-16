@@ -9,6 +9,7 @@ import Weekender from "./components/categories-item/Weekender";
 import Categories from "./pages/Categories";
 import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="weekender" element={<Weekender />} />
           <Route path="way" element={<Way />} />
         </Route>
+        <Route path="productpage" element={<ProductPage />} />
       </Routes>
     </>
   );

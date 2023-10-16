@@ -35,7 +35,7 @@ function Navbar() {
                 <li className="cursor-pointer">
                   <Link
                     className="relative no-underline before:content-[''] before:absolute before:bottom-[-0.25rem] before:h-[0.1rem] before:w-0 before:bg-black before:transition-all before:duration-[0.35s] before:ease-[ease-in-out] hover:before:w-full"
-                    to=""
+                    to="productpage"
                   >
                     product page
                   </Link>
