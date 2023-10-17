@@ -2,10 +2,16 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { items } from "../components/AllData";
+import { useState } from "react";
 
 function ProductPage() {
   const { id } = useParams();
   const item = items.filter((item) => item.id === parseInt(id));
+
+  const [image, setImage] = useState(item[0].img);
+  const changeImage = (e) => {
+    setImage(e.target.src);
+  };
 
   return (
     <>
@@ -19,13 +25,32 @@ function ProductPage() {
             <div className="w-full md:w-6/12 h- pt-12">
               <div className="w-full h-3/4 flex justify-center">
                 <img
-                  src={item[0].img}
+                  src={image}
                   alt="product"
                   className="w-3/4 h-full object-cover"
                 />
               </div>
+              <div className="w-full flex justify-center items-center py-7 px-5 gap-3">
+                <img
+                  onMouseOver={changeImage}
+                  src={item[0].img}
+                  alt="product"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                />
+                <img
+                  onMouseOver={changeImage}
+                  src={item[0].otherImgs[0]}
+                  alt="product"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                />
+                <img
+                  onMouseOver={changeImage}
+                  src={item[0].otherImgs[1]}
+                  alt="product"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                />
+              </div>
             </div>
-
             <div className="w-full md:w-6/12 h-full bg-[#E5E5E5] text-lg pt-7 md:pt-40 px-5 md:px-12 pb-10 md:pb-20">
               <p className="text-xl mb-5 sm:mb-12 leading-normal">
                 {item[0].desc}
