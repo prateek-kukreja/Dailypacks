@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { items } from "../components/AllData";
 import { useState } from "react";
+import TrendingSlider from "../components/TrendingSlider";
 
 function ProductPage() {
   const { id } = useParams();
@@ -95,6 +96,7 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      <TrendingSlider />
       <Newsletter />
       <Footer />
     </>
