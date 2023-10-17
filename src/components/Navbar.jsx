@@ -26,6 +26,7 @@ function Navbar() {
               <ul className="flex md:flex-row flex-col gap-6 md:gap-8 font-medium md:font-normal uppercase">
                 <li className="cursor-pointer">
                   <Link
+                    onClick={() => window.top(0, 0)}
                     className="relative no-underline before:content-[''] before:absolute before:bottom-[-0.25rem] before:h-[0.1rem] before:w-0 before:bg-black before:transition-all before:duration-[0.35s] before:ease-[ease-in-out] hover:before:w-full"
                     to="categories/all"
                   >
@@ -34,6 +35,7 @@ function Navbar() {
                 </li>
                 <li className="cursor-pointer">
                   <Link
+                    onClick={() => window.top(0, 0)}
                     className="relative no-underline before:content-[''] before:absolute before:bottom-[-0.25rem] before:h-[0.1rem] before:w-0 before:bg-black before:transition-all before:duration-[0.35s] before:ease-[ease-in-out] hover:before:w-full"
                     to="categories/product/6"
                   >
