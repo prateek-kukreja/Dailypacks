@@ -56,7 +56,7 @@ function ProductPage() {
               <p className="text-xl mb-5 sm:mb-12 leading-normal">
                 {item[0].desc}
               </p>
-              <div className="flex flex-col sm:flex-row justify-between md:mb-12 font-semibold items-center text-2xl gap-5 sm:gap-0">
+              <div className="flex flex-col sm:flex-row justify-between mb-12 font-semibold items-center text-2xl gap-5 sm:gap-0">
                 <p>Quantity</p>
                 <div className="flex border border-solid border-black">
                   <button className="text-3xl w-14 h-14 text-black border-r-[1px] cursor-pointer bg-white  border-black transition-all duration-200">
@@ -69,11 +69,11 @@ function ProductPage() {
                 </div>
                 <p className="">₹{item[0].price}</p>
               </div>
-              <div className="flex justify-center gap-5">
-                <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
+              <div className="flex flex-col md:flex-row justify-center gap-5">
+                <button className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
                   add to cart
                 </button>
-                <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 bg-[#B6002C] text-white border-2 border-solid border-[#B6002C] hover:bg-transparent hover:text-[#B6002C]">
+                <button className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 bg-[#B6002C] text-white border-2 border-solid border-[#B6002C] hover:bg-transparent hover:text-[#B6002C]">
                   buy now
                 </button>
               </div>
