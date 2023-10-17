@@ -168,7 +168,7 @@ export const items = [
     id: 9,
     category: "odysseyBackpack",
     img: KhakiBeigeOdysseyBackpack,
-    name: "Khaki Beige Odyssey Backpack",
+    name: "Khaki Odyssey Backpack",
     price: 4999,
     desc: "A cleverly designed classic, Odyssey brings modern balance to the familiar backpacks. Crafted from luxurious leather and durable canvas in a minimalist design makes this practical backpack a simple yet statement work bag.",
     otherImgs: [KhakiBeigeOdysseyBackpack1, KhakiBeigeOdysseyBackpack2],

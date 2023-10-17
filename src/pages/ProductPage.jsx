@@ -66,13 +66,13 @@ function ProductPage() {
                     +
                   </button>
                 </div>
-                <p className="">{item[0].price}</p>
+                <p className="">₹{item[0].price}</p>
               </div>
               <div className="flex justify-center gap-5">
                 <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
                   add to cart
                 </button>
-                <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 bg-[#20a87e] text-white border-2 border-solid border-[#20a87e] hover:bg-transparent hover:text-[#20a87e]">
+                <button className="w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 bg-[#B6002C] text-white border-2 border-solid border-[#B6002C] hover:bg-transparent hover:text-[#B6002C]">
                   buy now
                 </button>
               </div>
