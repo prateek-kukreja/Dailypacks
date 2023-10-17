@@ -14,6 +14,24 @@ function ProductPage() {
     setImage(e.target.src);
   };
 
+  const [quantity, setQuantity] = useState(1);
+
+  const increase = () => {
+    if (quantity >= 1) {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const calcPrice = (quantity) => {
+    return quantity * item[0].price;
+  };
+
   return (
     <>
       <div className="pt-4">
@@ -36,19 +54,19 @@ function ProductPage() {
                   onMouseOver={changeImage}
                   src={item[0].img}
                   alt="product"
-                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer hover:outline-[1px] hover:outline hover:outline-[##0000004d] hover:shadow-[0px_0px_13px_0px_rgba(0,0,0,0.18)]"
                 />
                 <img
                   onMouseOver={changeImage}
                   src={item[0].otherImgs[0]}
                   alt="product"
-                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer hover:outline-[1px] hover:outline hover:outline-[##0000004d] hover:shadow-[0px_0px_13px_0px_rgba(0,0,0,0.18)]"
                 />
                 <img
                   onMouseOver={changeImage}
                   src={item[0].otherImgs[1]}
                   alt="product"
-                  className="w-[22%] h-[20%] object-cover cursor-pointer"
+                  className="w-[22%] h-[20%] object-cover cursor-pointer hover:outline-[1px] hover:outline hover:outline-[##0000004d] hover:shadow-[0px_0px_13px_0px_rgba(0,0,0,0.18)]"
                 />
               </div>
             </div>
@@ -59,15 +77,23 @@ function ProductPage() {
               <div className="flex flex-col sm:flex-row justify-between mb-12 font-semibold items-center text-2xl gap-5 sm:gap-0">
                 <p>Quantity</p>
                 <div className="flex border border-solid border-black">
-                  <button className="text-3xl w-14 h-14 text-black border-r-[1px] cursor-pointer bg-white  border-black transition-all duration-200">
+                  <button
+                    onClick={decrease}
+                    className="text-3xl w-14 h-14 text-black border-r-[1px] cursor-pointer bg-white  border-black transition-all duration-200"
+                  >
                     -
                   </button>
-                  <p className="-outline-offset-2 w-16 h-14 text-center pt-1"></p>
-                  <button className="text-3xl w-14 h-14 text-black border-l-[1px] cursor-pointer bg-white border-black transition-all duration-200">
+                  <p className="-outline-offset-2 w-16 h-14 text-center pt-3">
+                    {quantity}
+                  </p>
+                  <button
+                    onClick={increase}
+                    className="text-3xl w-14 h-14 text-black border-l-[1px] cursor-pointer bg-white border-black transition-all duration-200"
+                  >
                     +
                   </button>
                 </div>
-                <p className="">₹{item[0].price}</p>
+                <p>₹{calcPrice(quantity)}</p>
               </div>
               <div className="flex flex-col md:flex-row justify-center gap-5">
                 <button className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
