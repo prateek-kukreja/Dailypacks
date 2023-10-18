@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { TfiMenu, TfiClose } from "react-icons/tfi";
-import DailyPacks from "../images/logo/Dailypacks.png";
+import Logo from "../images/logo/Logo.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -19,7 +19,7 @@ function Navbar() {
       <div className="container">
         <div className="flex items-center justify-between h-20">
           <Link to={"/"}>
-            <img src={DailyPacks} alt="" className="w-48 h-52 pt-5" />
+            <img src={Logo} alt="" className="w-16" />
           </Link>
           <div className="flex items-center gap-8 md:gap-3 z-10">
             <div className="nav_links md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[50vh] left-0 top-[-100%] w-full px-5">
