@@ -9,3 +9,8 @@
 .container {
   @apply max-w-[1200px] mx-auto my-0 px-[19px] py-0;
 }
+
+.text-stroke {
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+}

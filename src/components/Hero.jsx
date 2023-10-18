@@ -9,13 +9,15 @@ function Hero() {
           <div className="absolute w-full h-full top-0 left-0 bg-[#00000080] rounded-sm "></div>
           <img src={Main} className="rounded-sm" />
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white text-2xl font-bold text-center">
-            <p className="text-3xl md:text-6xl font-extrabold mb-2">Sale 30%</p>
-            <p className="uppercase text-sm md:text-2xl font-medium mb-2 md:mb-5">
+            <p className="text-3xl md:text-6xl font-extrabold mb-2 text-stroke">
+              Sale 30%
+            </p>
+            <p className="uppercase text-sm md:text-3xl font-bold mb-2 md:mb-5 text-stroke">
               Don't miss the chance
             </p>
-            <Link to="">
-              <button className="border-2 bg-transparent px-2 py-1 md:px-4 md:py-2 text-sm md:text-xl rounded bg-white text-black border-black hover:border-none">
-                Shop Now
+            <Link to="categories/all">
+              <button className="bg-black text-white text-base md:text-lg font-bold px-2 md:px-4 py-1 md:py-2 uppercase cursor-pointer border-2 border-black transition-all duration-75 hover:bg-white hover:text-black">
+                Shop now
               </button>
             </Link>
           </div>
