@@ -1,57 +1,31 @@
-import React from "react";
-
 function Footer() {
   return (
-    <footer className="flex flex-col justify-center text-center h-40 bg-[black]">
-      <div className="flex gap-10 text-center flex-wrap justify-center">
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          About
-        </a>
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          Blog
-        </a>
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          Team
-        </a>
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          Pricing
-        </a>
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          Contact
-        </a>
-        <a
-          href="#"
-          className="text-lg font-medium text-white hover:underline underline-offset-2"
-        >
-          Terms
-        </a>
+    <footer className="pt-10 w-full px-3 py-4 sm:px-10 xl:px-24 2xl:px-48 bg-black text-white">
+      <div className="container">
+        <h3 className="-mb-2 text-xl font-bold">Bags,</h3>
+        <h3 className="text-xl font-bold">that carry your day.</h3>
+
+        <h6 className="mt-10">
+          Design by{" "}
+          <a
+            href="https://github.com/Abderraouf-Rahmani"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold hover:underline"
+          >
+            abderraouf
+          </a>
+          , all product images from{" "}
+          <a
+            href="https://www.dailyobjects.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold hover:underline"
+          >
+            dailyobjects.com
+          </a>
+        </h6>
       </div>
-      <p className="mt-8 text-base font-medium text-white">
-        Design &nbsp; by{" "}
-        <a
-          target="_blank"
-          rel="noreferrer"
-          style={{ color: "white" }}
-          href="https://github.com/Abderraouf-Rahmani"
-        >
-          &nbsp; Abderraouf
-        </a>
-      </p>
     </footer>
   );
 }
