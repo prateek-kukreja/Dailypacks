@@ -12,7 +12,7 @@ function TrendingItem() {
         >
           <Link
             onClick={() => window.top(0, 0)}
-            to={`categories/product/${item.id}`}
+            to={`/categories/product/${item.id}`}
           >
             <div>
               <img src={item.img} alt="product" className="max-w-[13.125rem]" />

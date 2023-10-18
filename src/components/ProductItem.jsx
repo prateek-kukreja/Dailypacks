@@ -13,7 +13,7 @@ function ProductItem() {
         >
           <Link
             onClick={() => window.top(0, 0)}
-            to={`categories/product/${item.id}`}
+            to={`/categories/product/${item.id}`}
           >
             <div>
               <img src={item.img} className="w-full" />
