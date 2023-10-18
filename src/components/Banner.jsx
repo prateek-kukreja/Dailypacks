@@ -9,7 +9,7 @@ function Banner({ title, text, img }) {
             <div>
               <h2 className="text-xl font-bold mb-6">{title}</h2>
               <p className="text-lg">{text}</p>
-              <Link onClick={() => window.scrollTo(0, 0)} to="">
+              <Link onClick={() => window.scrollTo(0, 0)} to="categories/tarp">
                 <button className="bg-black text-white text-lg font-bold px-4 py-2 uppercase mt-8 cursor-pointer border-2 border-black transition-all duration-75 hover:bg-transparent hover:text-black">
                   Shop now
                 </button>
