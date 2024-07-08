@@ -11,7 +11,11 @@ const app = express();
 const port = process.env.PORT;
 
 var corsOptions = {
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://dailypacks-n4w68az2z-prateekwhos-projects.vercel.app",
+    "https://dailypacks.vercel.app",
+  ],
   methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true,
 };
