@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "/favicon.ico";
 import { Link } from "react-router-dom";
+import { useSignup } from "../hook/useSignup";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -8,6 +9,7 @@ function Signup() {
     email: "",
     password: "",
   });
+  const { signup, error, isLoading } = useSignup();
 
   const handleInput = (e) => {
     let id = e.target.id;
@@ -21,23 +23,24 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
 
-    try {
-      const response = await fetch("http://localhost:3001/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+    // try {
+    //   const response = await fetch("http://localhost:3001/api/auth/register", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(user),
+    //   });
 
-      if (response.ok) {
-        setUser({ name: "", email: "", password: "" });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (response.ok) {
+    //     setUser({ name: "", email: "", password: "" });
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    await signup(user.name, user.email, user.password);
   };
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">
@@ -50,6 +53,14 @@ function Signup() {
           <h1 className="mt-4 text-center text-xl font-bold md:mt-8 md:text-2xl">
             Create Account
           </h1>
+          {/* error bar */}
+          {error && (
+            <div className="w-full border border-[#e7195a] text-[#e7195a] rounded p-2.5 mt-8 border-solid bg-[#ffefef]">
+              {error}
+            </div>
+          )}
+          {/* error bar */}
+
           <div className="mt-8 w-full">
             {/* form */}
             <form onSubmit={handleSubmit}>
@@ -101,7 +112,10 @@ function Signup() {
               </div>
 
               <div className="mt-6">
-                <button className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90">
+                <button
+                  className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90"
+                  disabled={isLoading}
+                >
                   Sign up
                 </button>
               </div>
