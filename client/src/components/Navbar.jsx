@@ -3,6 +3,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { TfiMenu, TfiClose } from "react-icons/tfi";
 import Logo from "../images/logo/Logo.png";
 import { Link } from "react-router-dom";
+import { useLogout } from "../hook/useLogout";
+import { useAuthContext } from "../hook/useAuthContext";
 
 function Navbar() {
   const [state, setState] = useState(true);
@@ -12,6 +14,15 @@ function Navbar() {
     navLinks.classList.toggle("top-[14%]");
 
     setState((prev) => !prev);
+  };
+
+  const { user } = useAuthContext();
+
+  const { logout } = useLogout();
+  const handleClick = () => {
+    logout();
+
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -42,11 +53,22 @@ function Navbar() {
                     product page
                   </Link>
                 </li>
-                <li>
-                  <Link onClick={() => window.scrollTo(0, 0)} to="sign_in">
-                    sign in
-                  </Link>
-                </li>
+
+                {!user && (
+                  <li>
+                    <Link onClick={() => window.scrollTo(0, 0)} to="sign_in">
+                      sign in
+                    </Link>
+                  </li>
+                )}
+
+                {user && (
+                  <li>
+                    <Link onClick={handleClick} to="/">
+                      log out
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
 

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import logo from "/favicon.ico";
 import { Link } from "react-router-dom";
+<<<<<<< Updated upstream
+=======
+import { useSignup } from "../hook/useSignup";
+import { useNavigate } from "react-router-dom";
+>>>>>>> Stashed changes
 
 function Signup() {
   const [user, setUser] = useState({
@@ -19,8 +24,10 @@ function Signup() {
     });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< Updated upstream
     console.log(user);
 
     try {
@@ -38,6 +45,11 @@ function Signup() {
     } catch (error) {
       console.log(error);
     }
+=======
+    navigate("/");
+
+    await signup(user.name, user.email, user.password);
+>>>>>>> Stashed changes
   };
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">

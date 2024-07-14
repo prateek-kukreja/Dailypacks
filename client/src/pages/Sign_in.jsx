@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import logo from "/favicon.ico";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignin } from "../hook/useSignIn";
 
 function Signin() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const { signin, error, isLoading } = useSignin();
 
-  const navigate = useNavigate();
   const handleInput = (e) => {
     let id = e.target.id;
     let value = e.target.value;
@@ -19,31 +20,12 @@ function Signin() {
     });
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    navigate("/");
 
-    try {
-      const response = await fetch("http://localhost:3001/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
-
-      if (response.ok) {
-        const res_data = await response.json();
-        console.log("response from server", res_data);
-
-        setUser({ email: "", password: "" });
-        navigate("/");
-      } else {
-        console.log("invalid credential");
-      }
-    } catch (error) {
-      console.log("Login page error", error);
-    }
+    await signin(user.email, user.password);
   };
 
   return (
@@ -57,6 +39,14 @@ function Signin() {
           <h1 className="mt-4 text-center text-xl font-bold md:mt-8 md:text-2xl">
             Sign in to your account
           </h1>
+          {/* error bar */}
+          {error && (
+            <div className="w-full border border-[#e7195a] text-[#e7195a] rounded p-2.5 mt-8 border-solid bg-[#ffefef]">
+              {error}
+            </div>
+          )}
+          {/* error bar */}
+
           <div className="mt-8 w-full">
             {/* form */}
             <form onSubmit={handleSubmit}>
@@ -83,7 +73,10 @@ function Signin() {
                 />
               </div>
               <div className="mt-6">
-                <button className="font-bold px-8 py-3 w-full rounded-md bg-black text-white">
+                <button
+                  className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90"
+                  disabled={isLoading}
+                >
                   Sign in
                 </button>
               </div>
