@@ -10,20 +10,10 @@ const app = express();
 
 const port = process.env.PORT;
 
-var corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "https://dailypacks-git-feature-prateekwhos-projects.vercel.app/",
-    "https://dailypacks.vercel.app",
-  ],
-  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
-  credentials: true,
-};
-
 // middlewares
 app.use(express.urlencoded({ extended: true })); // middleware which fetches the form data
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 // database connection
 mongoose
