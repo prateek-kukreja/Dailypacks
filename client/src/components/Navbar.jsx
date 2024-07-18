@@ -5,6 +5,7 @@ import Logo from "../images/logo/Logo.png";
 import { Link } from "react-router-dom";
 import { useLogout } from "../hook/useLogout";
 import { useAuthContext } from "../hook/useAuthContext";
+import SearchBar from "./search-bar/SearchBar";
 
 function Navbar() {
   const [state, setState] = useState(true);
@@ -34,7 +35,13 @@ function Navbar() {
           </Link>
           <div className="flex items-center gap-8 md:gap-3 z-10">
             <div className="nav_links md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[50vh] left-0 top-[-100%] w-full px-5">
-              <ul className="flex md:flex-row flex-col gap-6 md:gap-8 font-medium md:font-normal uppercase">
+              <ul className="flex md:flex-row flex-col gap-6 md:gap-8 font-medium md:font-normal uppercase items-center">
+                {/* search bar */}
+                <li>
+                  <SearchBar />
+                </li>
+                {/* search bar */}
+
                 <li className="cursor-pointer">
                   <Link
                     onClick={() => window.scrollTo(0, 0)}

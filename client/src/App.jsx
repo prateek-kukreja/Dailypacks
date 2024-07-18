@@ -13,6 +13,7 @@ import ProductPage from "./pages/ProductPage";
 import Signin from "./pages/Sign_in";
 import { Outlet } from "react-router-dom";
 import Signup from "./pages/Sign_up";
+import DataSender from "./components/all-data/DataSender";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="weekender" element={<Weekender />} />
             <Route path="way" element={<Way />} />
           </Route>
+          <Route path="fetch" element={<DataSender />} />
           <Route path="categories/product/:id" element={<ProductPage />} />
         </Route>
       </Routes>
