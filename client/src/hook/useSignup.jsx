@@ -20,6 +20,7 @@ export const useSignup = () => {
     if (!response.ok) {
       setIsLoading(false);
       setError(res_data.error);
+      return false;
     }
 
     if (response.ok) {
@@ -31,6 +32,7 @@ export const useSignup = () => {
 
       // update loading state
       setIsLoading(false);
+      return true;
     }
   };
 

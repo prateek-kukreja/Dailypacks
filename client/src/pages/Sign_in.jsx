@@ -23,9 +23,12 @@ function Signin() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/");
 
-    await signin(user.email, user.password);
+    const success = await signin(user.email, user.password);
+
+    if (success) {
+      navigate("/");
+    }
   };
 
   return (

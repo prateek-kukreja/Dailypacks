@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import logo from "/favicon.ico";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSignup } from "../hook/useSignup";
-import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -25,9 +24,12 @@ function Signup() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/");
 
-    await signup(user.name, user.email, user.password);
+    const success = await signup(user.name, user.email, user.password);
+
+    if (success) {
+      navigate("/");
+    }
   };
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">
