@@ -11,7 +11,7 @@ function CategoriesFilter() {
 
   return (
     <div className="container">
-      <div className="flex flex-col items-center -mb-10 pt-28">
+      <div className="flex flex-col items-center -mb-10 pt-20">
         <div className="flex items-center w-full mb-14">
           <Link
             className="text-base no-underline text-black text-left flex items-center justify-center"
