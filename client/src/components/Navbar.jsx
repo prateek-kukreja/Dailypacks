@@ -3,9 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { TfiMenu, TfiClose } from "react-icons/tfi";
 import Logo from "../images/logo/Logo.png";
 import { Link } from "react-router-dom";
-import { useLogout } from "../hook/useLogout";
 import { useAuthContext } from "../hook/useAuthContext";
 import SearchBar from "./search-bar/SearchBar";
+import Dropdown from "./account-button/Dropdown";
 
 function Navbar() {
   const [state, setState] = useState(true);
@@ -18,13 +18,6 @@ function Navbar() {
   };
 
   const { user } = useAuthContext();
-
-  const { logout } = useLogout();
-  const handleClick = () => {
-    logout();
-
-    window.scrollTo(0, 0);
-  };
 
   return (
     <nav className="shadow-md bg-[white] md:sticky w-full z-50 top-0">
@@ -62,7 +55,7 @@ function Navbar() {
                 </li>
 
                 {!user && (
-                  <li>
+                  <li className="bg-black text-white text-base md:text-lg font-medium px-2 md:px-3 py-1 uppercase cursor-pointer border-2 border-black rounded-lg">
                     <Link onClick={() => window.scrollTo(0, 0)} to="sign_in">
                       sign in
                     </Link>
@@ -70,10 +63,8 @@ function Navbar() {
                 )}
 
                 {user && (
-                  <li>
-                    <Link onClick={handleClick} to="/">
-                      log out
-                    </Link>
+                  <li className="relative inline-block text-left">
+                    <Dropdown user_email={user.email} />
                   </li>
                 )}
               </ul>

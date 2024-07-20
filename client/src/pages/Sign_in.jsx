@@ -30,7 +30,7 @@ function Signin() {
 
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">
-      <div className="my-4 w-full max-w-[450px]">
+      <div className="my-4 w-full max-w-[500px]">
         <div className="bg-[#ffffff] m-auto flex w-full flex-col items-center p-6 py-0 md:rounded-2xl md:border md:p-12 md:py-10">
           <div className="flex items-center">
             <img className="h-[1.75rem]" src={logo} alt="dailypacks" />
@@ -46,6 +46,17 @@ function Signin() {
             </div>
           )}
           {/* error bar */}
+
+          <div className="w-full mt-8 items-start border rounded border-black px-2 py-4">
+            <h2 className="font-bold text-lg pb-2">Demo Account</h2>
+            <p className="flex capitalize font-medium gap-2">
+              email:{" "}
+              <span className="lowercase font-normal">prateek@google.com</span>
+              password :{" "}
+              <span className="lowercase font-normal">prateek123</span>
+            </p>
+            <p></p>
+          </div>
 
           <div className="mt-8 w-full">
             {/* form */}
@@ -95,11 +106,6 @@ function Signin() {
                   Sign up
                 </Link>
               </span>
-              <div className="mt-2">
-                <div className="text-md line-height-[20px]">
-                  <a href="">Forgot your password?</a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

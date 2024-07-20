@@ -80,22 +80,6 @@ function Signup() {
                   onChange={handleInput}
                 />
               </div>
-              <div className="flex items-center p-4 my-8">
-                <input
-                  className=" h-4 w-4 cursor-pointer rounded mx-2"
-                  type="checkbox"
-                />
-                <span className="text-[#545861] text-xs font-semibold">
-                  I agree to the{" "}
-                  <a className="text-black hover:text-light font-bold" href="">
-                    terms of service
-                  </a>{" "}
-                  and have read the{" "}
-                  <a className="text-black hover:text-light font-bold" href="">
-                    privacy policy
-                  </a>
-                </span>
-              </div>
 
               <div className="mt-6">
                 <button
@@ -111,7 +95,7 @@ function Signup() {
             <div className="mt-8 flex flex-col items-center justify-center">
               <div className="mb-6">
                 <span className="text-md line-height-[20px]">
-                  <Link to="/">← Back</Link>
+                  <Link to="/sign_in">← Back</Link>
                 </span>
               </div>
               <span className="text-md line-height-[20px] text-[#545861]">
