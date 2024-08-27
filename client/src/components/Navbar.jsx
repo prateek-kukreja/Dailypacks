@@ -9,12 +9,17 @@ import Dropdown from "./account-button/Dropdown";
 
 function Navbar() {
   const [state, setState] = useState(true);
+  const [openCart, setOpenCart] = useState(false);
 
   const toggleMenu = () => {
     let navLinks = document.querySelector(".nav_links");
     navLinks.classList.toggle("top-[14%]");
 
     setState((prev) => !prev);
+  };
+
+  const cart = () => {
+    setOpenCart(!openCart);
   };
 
   const { user } = useAuthContext();
@@ -27,7 +32,7 @@ function Navbar() {
             <img src={Logo} alt="dailypacks" className="w-16" />
           </Link>
           <div className="flex items-center gap-8 md:gap-3 z-10">
-            <div className="nav_links md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[50vh] left-0 top-[-100%] w-full px-5">
+            <div className="nav_links  md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[50vh] left-0 top-[-100%] w-full px-5">
               <ul className="flex md:flex-row flex-col gap-6 md:gap-8 font-medium md:font-normal uppercase items-center">
                 {/* search bar */}
                 <li>
@@ -70,7 +75,7 @@ function Navbar() {
               </ul>
             </div>
 
-            <FaShoppingCart className="text-2xl" />
+            <FaShoppingCart className="text-2xl" onClick={cart} />
 
             {/* mobile nav */}
             <div className="relative" onClick={toggleMenu}>
