@@ -1,8 +1,11 @@
-import { items } from "../AllData";
+import { items } from "../all-data/AllData";
 import { Link } from "react-router-dom";
 
-function CategoriesItemIdyll() {
-  const filteredItems = items.filter((item) => item.category == "totebag");
+function CategoriesItemTarp() {
+  const filteredItems = items.filter(
+    (item) => item.category == "scootBackpack"
+  );
+
   return (
     <div className="py-28 px-0">
       <div className="container">
@@ -32,4 +35,4 @@ function CategoriesItemIdyll() {
   );
 }
 
-export default CategoriesItemIdyll;
+export default CategoriesItemTarp;

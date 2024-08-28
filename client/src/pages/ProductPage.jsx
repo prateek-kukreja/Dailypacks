@@ -1,8 +1,8 @@
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
-import { items } from "../components/AllData";
-import { useState } from "react";
+import { items } from "../components/all-data/AllData";
+import { useState, useEffect } from "react";
 import TrendingSlider from "../components/TrendingSlider";
 
 function ProductPage() {
@@ -14,8 +14,11 @@ function ProductPage() {
     setImage(e.target.src);
   };
 
-  const [quantity, setQuantity] = useState(1);
+  useEffect(() => {
+    image;
+  }, [id]);
 
+  const [quantity, setQuantity] = useState(1);
   const increase = () => {
     if (quantity >= 1) {
       setQuantity(quantity + 1);

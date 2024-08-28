@@ -1,24 +1,23 @@
-import { items } from "./AllData";
+import { items } from "./all-data/AllData";
 import { Link } from "react-router-dom";
 
-function ProductItem() {
-  const filteredItems = items.filter((item) => item.id <= 8);
-
+function TrendingItem() {
+  const filteredItems = items.filter((item) => item.id >= 8);
   return (
     <>
       {filteredItems.map((item) => (
         <div
           key={item.id}
-          className="-outline-offset-2 transition-all duration-[0.15s] ease-[ease-in] cursor-pointer outline-2 outline outline-color hover:outline-hover rounded-sm"
+          className="outline-2 outline outline-color hover:outline-hover cursor-pointer transition-all duration-[0.15s] ease[ease-in] max-w-[13.125rem]"
         >
           <Link
             onClick={() => window.top(0, 0)}
             to={`/categories/product/${item.id}`}
           >
             <div>
-              <img src={item.img} className="w-full" />
+              <img src={item.img} alt="product" className="max-w-[13.125rem]" />
             </div>
-            <div className="font-medium p-3">
+            <div className="text-base font-medium p-2">
               <p>{item.name}</p>
               <p>₹{item.price}</p>
             </div>
@@ -29,4 +28,4 @@ function ProductItem() {
   );
 }
 
-export default ProductItem;
+export default TrendingItem;

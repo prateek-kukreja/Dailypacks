@@ -1,9 +1,9 @@
-import { items } from "../AllData";
+import { items } from "../all-data/AllData";
 import { Link } from "react-router-dom";
 
-function CategoriesItemTarp() {
+function CategoriesItemOdyssey() {
   const filteredItems = items.filter(
-    (item) => item.category == "scootBackpack"
+    (item) => item.category == "odysseyBackpack"
   );
 
   return (
@@ -35,4 +35,4 @@ function CategoriesItemTarp() {
   );
 }
 
-export default CategoriesItemTarp;
+export default CategoriesItemOdyssey;

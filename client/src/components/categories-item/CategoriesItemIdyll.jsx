@@ -1,11 +1,8 @@
-import { items } from "../AllData";
+import { items } from "../all-data/AllData";
 import { Link } from "react-router-dom";
 
-function CategoriesItemWeekender() {
-  const filteredItems = items.filter(
-    (item) => item.category == "trailWeekender"
-  );
-
+function CategoriesItemIdyll() {
+  const filteredItems = items.filter((item) => item.category == "totebag");
   return (
     <div className="py-28 px-0">
       <div className="container">
@@ -35,4 +32,4 @@ function CategoriesItemWeekender() {
   );
 }
 
-export default CategoriesItemWeekender;
+export default CategoriesItemIdyll;

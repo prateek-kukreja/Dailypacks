@@ -1,9 +1,9 @@
-import { items } from "../AllData";
+import { items } from "../all-data/AllData";
 import { Link } from "react-router-dom";
 
-function CategoriesItemOdyssey() {
+function CategoriesItemWeekender() {
   const filteredItems = items.filter(
-    (item) => item.category == "odysseyBackpack"
+    (item) => item.category == "trailWeekender"
   );
 
   return (
@@ -35,4 +35,4 @@ function CategoriesItemOdyssey() {
   );
 }
 
-export default CategoriesItemOdyssey;
+export default CategoriesItemWeekender;
