@@ -1,4 +1,4 @@
-import Main from "../images/header/backpacks.png";
+import heroMain from "../images/header/header.avif";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -6,8 +6,16 @@ function Hero() {
     <div className="pt-3 w-full">
       <div className="container">
         <div className="relative flex justify-items-center">
-          <div className="absolute w-full h-full top-0 left-0 bg-[#00000080] rounded-sm "></div>
-          <img src={Main} className="rounded-sm" />
+          <div className="absolute w-full h-full top-0 left-0 bg-[#00000050] rounded-sm"></div>
+
+          <div className="w-full h-[400px] md:h-[600px] rounded-sm overflow-hidden">
+            <img
+              src={heroMain}
+              alt="Backpacks"
+              className="object-cover w-full h-full"
+            />
+          </div>
+
           <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-white text-2xl font-bold text-center">
             <p className="text-3xl md:text-6xl font-extrabold mb-2 text-stroke">
               Sale 30%

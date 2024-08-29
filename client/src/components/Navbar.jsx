@@ -13,7 +13,7 @@ function Navbar() {
 
   const toggleMenu = () => {
     let navLinks = document.querySelector(".nav_links");
-    navLinks.classList.toggle("top-[14%]");
+    navLinks.classList.toggle("top-[13%]");
 
     setState((prev) => !prev);
   };
@@ -32,7 +32,7 @@ function Navbar() {
             <img src={Logo} alt="dailypacks" className="w-16" />
           </Link>
           <div className="flex items-center gap-8 md:gap-3 z-10">
-            <div className="nav_links  md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[50vh] left-0 top-[-100%] w-full px-5">
+            <div className="nav_links  md:static duration-500 absolute flex items-center justify-center bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] w-full px-5">
               <ul className="flex md:flex-row flex-col gap-6 md:gap-8 font-medium md:font-normal uppercase items-center">
                 {/* search bar */}
                 <li>

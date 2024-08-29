@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import All from "./components/categories-item/All";
 import Bask from "./components/categories-item/Bask";
 import Idyll from "./components/categories-item/Idyll";
@@ -13,8 +13,11 @@ import ProductPage from "./pages/ProductPage";
 import Signin from "./pages/Sign_in";
 import { Outlet } from "react-router-dom";
 import Signup from "./pages/Sign_up";
+import { useAuthContext } from "./hook/useAuthContext";
 
 function App() {
+  const { user } = useAuthContext();
+
   return (
     <>
       <Routes>
@@ -28,7 +31,10 @@ function App() {
             </>
           }
         >
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={user ? <Home /> : <Navigate to="/sign_in" />}
+          />
           <Route path="categories" element={<Categories />}>
             <Route path="all" element={<All />} />
             <Route path="bask" element={<Bask />} />
