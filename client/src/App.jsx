@@ -33,28 +33,56 @@ function App() {
           element={!user ? <Signin /> : <Navigate to="/" />}
         />
 
-        {user && (
+        <Route
+          element={
+            <>
+              <Navbar />
+              <Outlet />
+            </>
+          }
+        >
           <Route
-            element={
-              <>
-                <Navbar />
-                <Outlet />
-              </>
-            }
+            path="/"
+            element={user ? <Home /> : <Navigate to="sign_in" />}
+          />
+          <Route
+            path="categories"
+            element={user ? <Categories /> : <Navigate to="sign_in" />}
           >
-            <Route path="/" element={<Home />} />
-            <Route path="categories" element={<Categories />}>
-              <Route path="all" element={<All />} />
-              <Route path="bask" element={<Bask />} />
-              <Route path="idyll" element={<Idyll />} />
-              <Route path="odyssey" element={<Odyssey />} />
-              <Route path="tarp" element={<Tarp />} />
-              <Route path="weekender" element={<Weekender />} />
-              <Route path="way" element={<Way />} />
-            </Route>
-            <Route path="categories/product/:id" element={<ProductPage />} />
+            <Route
+              path="all"
+              element={user ? <All /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="bask"
+              element={user ? <Bask /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="idyll"
+              element={user ? <Idyll /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="odyssey"
+              element={user ? <Odyssey /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="tarp"
+              element={user ? <Tarp /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="weekender"
+              element={user ? <Weekender /> : <Navigate to="sign_in" />}
+            />
+            <Route
+              path="way"
+              element={user ? <Way /> : <Navigate to="sign_in" />}
+            />
           </Route>
-        )}
+          <Route
+            path="categories/product/:id"
+            element={user ? <ProductPage /> : <Navigate to="sign_in" />}
+          />
+        </Route>
       </Routes>
     </>
   );
