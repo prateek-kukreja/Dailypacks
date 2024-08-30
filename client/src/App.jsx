@@ -19,7 +19,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   const { user } = useAuthContext();
 
-  if (user === unde) {
+  if (user === undefined) {
     return <div>Loading...</div>;
   }
 
