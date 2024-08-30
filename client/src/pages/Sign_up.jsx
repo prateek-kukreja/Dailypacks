@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "/favicon.ico";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignup } from "../hook/useSignup";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -9,7 +10,7 @@ function Signup() {
     email: "",
     password: "",
   });
-  const { signup, error, isLoading } = useSignup();
+  const { signup, error } = useSignup();
 
   const handleInput = (e) => {
     let id = e.target.id;
@@ -30,6 +31,8 @@ function Signup() {
     if (success) {
       navigate("/");
     }
+
+    toast.success("Successful Sign-Up");
   };
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">
@@ -84,10 +87,7 @@ function Signup() {
               </div>
 
               <div className="mt-6">
-                <button
-                  className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90"
-                  disabled={isLoading}
-                >
+                <button className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90">
                   Sign up
                 </button>
               </div>

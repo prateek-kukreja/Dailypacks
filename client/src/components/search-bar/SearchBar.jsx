@@ -40,7 +40,7 @@ function SearchBar() {
         {/* Dropdown Menu */}
         {value && filteredData.length > 0 && (
           <>
-            <div className="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden transition-opacity duration-300 ">
+            <div className="absolute left-0 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden transition-opacity duration-300 z-30">
               <ul className="py-1">
                 {/* Example dropdown items */}
                 {filteredData.map((item) => (

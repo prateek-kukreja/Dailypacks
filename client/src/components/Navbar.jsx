@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../hook/useAuthContext";
 import SearchBar from "./search-bar/SearchBar";
 import Dropdown from "./account-button/Dropdown";
+import Cart from "./Cart";
 
 function Navbar() {
   const [state, setState] = useState(true);
@@ -59,13 +60,13 @@ function Navbar() {
                   </Link>
                 </li>
 
-                {!user && (
+                {/* {!user && (
                   <li className="bg-black text-white text-base md:text-lg font-medium px-2 md:px-3 py-1 uppercase cursor-pointer border-2 border-black rounded-lg">
                     <Link onClick={() => window.scrollTo(0, 0)} to="sign_in">
                       sign in
                     </Link>
                   </li>
-                )}
+                )} */}
 
                 {user && (
                   <li className="relative inline-block text-left">
@@ -75,7 +76,12 @@ function Navbar() {
               </ul>
             </div>
 
-            <FaShoppingCart className="text-2xl" onClick={cart} />
+            <FaShoppingCart
+              className="text-2xl cursor-pointer"
+              onClick={cart}
+            />
+
+            {openCart && <Cart toggleCart={cart} />}
 
             {/* mobile nav */}
             <div className="relative" onClick={toggleMenu}>

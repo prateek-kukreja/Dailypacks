@@ -3,11 +3,9 @@ import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
   const signup = async (name, email, password) => {
-    setIsLoading(true);
     setError(null);
 
     const response = await fetch(
@@ -21,7 +19,6 @@ export const useSignup = () => {
     const res_data = await response.json();
 
     if (!response.ok) {
-      setIsLoading(false);
       setError(res_data.error);
       return false;
     }
@@ -33,11 +30,9 @@ export const useSignup = () => {
       //   update the auth context
       dispatch({ type: "LOGIN", payload: res_data });
 
-      // update loading state
-      setIsLoading(false);
       return true;
     }
   };
 
-  return { signup, error, isLoading };
+  return { signup, error };
 };

@@ -3,11 +3,9 @@ import { useAuthContext } from "../hook/useAuthContext";
 
 export const useSignin = () => {
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
   const signin = async (email, password) => {
-    setIsLoading(true);
     setError(null);
 
     const response = await fetch(
@@ -21,7 +19,6 @@ export const useSignin = () => {
     const res_data = await response.json();
 
     if (!response.ok) {
-      setIsLoading(false);
       setError(res_data.error);
       return false; // return false on failure
     }
@@ -33,11 +30,9 @@ export const useSignin = () => {
       // update the auth context
       dispatch({ type: "LOGIN", payload: res_data });
 
-      // update loading state
-      setIsLoading(false);
       return true; // return true on success
     }
   };
 
-  return { signin, error, isLoading };
+  return { signin, error };
 };

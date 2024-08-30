@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import logo from "/favicon.ico";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignin } from "../hook/useSignin";
+import { toast } from "react-toastify";
 
 function Signin() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const { signin, error, isLoading } = useSignin();
+  const { signin, error } = useSignin();
 
   const handleInput = (e) => {
     let id = e.target.id;
@@ -29,12 +30,14 @@ function Signin() {
     if (success) {
       navigate("/");
     }
+
+    toast.success("Successful Sign-In");
   };
 
   return (
     <div className="flex min-h-screen w-full justify-center items-center bg-[#f7f9fa]">
-      <div className="my-4 w-full max-w-[500px]">
-        <div className="bg-[#ffffff] m-auto flex w-full flex-col items-center p-6 py-0 md:rounded-2xl md:border md:p-12 md:py-10">
+      <div className="m-4 w-full max-w-[500px]">
+        <div className="bg-[#ffffff] m-auto flex w-full flex-col items-center p-6  rounded-2xl border md:p-12 py-10">
           <div className="flex items-center">
             <img className="h-[1.75rem]" src={logo} alt="dailypacks" />
             <p className="text-sm font-medium">Dailypacks</p>
@@ -52,12 +55,14 @@ function Signin() {
 
           <div className="w-full mt-8 items-start border rounded border-black px-2 py-4">
             <h2 className="font-bold text-lg pb-2">Demo Account</h2>
-            <p className="flex capitalize font-medium gap-2">
-              email:{" "}
-              <span className="lowercase font-normal">prateek@google.com</span>
-              password :{" "}
-              <span className="lowercase font-normal">prateek123</span>
-            </p>
+            <div className="flex flex-col md:flex-row  font-medium gap-2">
+              <p>
+                Email: <span className=" font-normal">prateek@google.com</span>{" "}
+              </p>
+              <p>
+                Password : <span className=" font-normal">prateek123</span>
+              </p>
+            </div>
             <p></p>
           </div>
 
@@ -87,10 +92,7 @@ function Signin() {
                 />
               </div>
               <div className="mt-6">
-                <button
-                  className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90"
-                  disabled={isLoading}
-                >
+                <button className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90">
                   Sign in
                 </button>
               </div>
