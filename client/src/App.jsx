@@ -19,13 +19,10 @@ import { ToastContainer } from "react-toastify";
 function App() {
   const { user } = useAuthContext();
 
-  if (user === undefined) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <ToastContainer />
+
       <Routes>
         <Route
           path="/sign_up"
@@ -36,7 +33,7 @@ function App() {
           element={!user ? <Signin /> : <Navigate to="/" />}
         />
 
-        {user ? (
+        {user && (
           <Route
             element={
               <>
@@ -57,8 +54,6 @@ function App() {
             </Route>
             <Route path="categories/product/:id" element={<ProductPage />} />
           </Route>
-        ) : (
-          <Route path="*" element={<Navigate to="/sign_in" />} />
         )}
       </Routes>
     </>

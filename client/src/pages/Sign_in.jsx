@@ -9,7 +9,7 @@ function Signin() {
     email: "",
     password: "",
   });
-  const { signin, error } = useSignin();
+  const { signin, error, isLoading } = useSignin();
 
   const handleInput = (e) => {
     let id = e.target.id;
@@ -29,9 +29,8 @@ function Signin() {
 
     if (success) {
       navigate("/");
+      toast.success("Successful Sign-In");
     }
-
-    toast.success("Successful Sign-In");
   };
 
   return (
@@ -93,7 +92,17 @@ function Signin() {
               </div>
               <div className="mt-6">
                 <button className="font-bold px-8 py-3 w-full rounded-md bg-black text-white disabled:bg-disabled hover:opacity-90">
-                  Sign in
+                  <span className="pr-4">Sign in</span>
+                  {isLoading && (
+                    <div
+                      className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      role="status"
+                    >
+                      <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                        Loading...
+                      </span>
+                    </div>
+                  )}
                 </button>
               </div>
             </form>
@@ -101,9 +110,9 @@ function Signin() {
 
             <div className="mt-8 flex flex-col items-center justify-center">
               <div className="mb-6">
-                <span className="text-md line-height-[20px]">
+                {/* <span className="text-md line-height-[20px]">
                   <Link to="/">← Back</Link>
-                </span>
+                </span> */}
               </div>
               <span className="text-md line-height-[20px] text-[#545861]">
                 Don't have an account?{" "}
