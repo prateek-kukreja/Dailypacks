@@ -22,7 +22,6 @@ function App() {
   return (
     <>
       <ToastContainer />
-
       <Routes>
         <Route
           path="/sign_up"
@@ -32,6 +31,8 @@ function App() {
           path="/sign_in"
           element={!user ? <Signin /> : <Navigate to="/" />}
         />
+
+        {/* <Route path="/" element={!user && <Signin />} /> */}
 
         <Route
           element={
@@ -43,45 +44,22 @@ function App() {
         >
           <Route
             path="/"
-            element={user ? <Home /> : <Navigate to="sign_in" />}
+            element={user ? <Home /> : <Navigate to="/sign_in" />}
           />
-          <Route
-            path="categories"
-            element={user ? <Categories /> : <Navigate to="sign_in" />}
-          >
-            <Route
-              path="all"
-              element={user ? <All /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="bask"
-              element={user ? <Bask /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="idyll"
-              element={user ? <Idyll /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="odyssey"
-              element={user ? <Odyssey /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="tarp"
-              element={user ? <Tarp /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="weekender"
-              element={user ? <Weekender /> : <Navigate to="sign_in" />}
-            />
-            <Route
-              path="way"
-              element={user ? <Way /> : <Navigate to="sign_in" />}
-            />
-          </Route>
-          <Route
-            path="categories/product/:id"
-            element={user ? <ProductPage /> : <Navigate to="sign_in" />}
-          />
+          {user && (
+            <Route path="categories" element={<Categories />}>
+              <Route path="all" element={<All />} />
+              <Route path="bask" element={<Bask />} />
+              <Route path="idyll" element={<Idyll />} />
+              <Route path="odyssey" element={<Odyssey />} />
+              <Route path="tarp" element={<Tarp />} />
+              <Route path="weekender" element={<Weekender />} />
+              <Route path="way" element={<Way />} />
+            </Route>
+          )}
+          {user && (
+            <Route path="categories/product/:id" element={<ProductPage />} />
+          )}
         </Route>
       </Routes>
     </>
