@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import TrendingSlider from "../components/TrendingSlider";
 import { useCart } from "../hook/useCart";
 import { useAuthContext } from "../hook/useAuthContext";
+import { toast } from "react-toastify";
 
 function ProductPage() {
   const { user } = useAuthContext();
@@ -45,6 +46,7 @@ function ProductPage() {
 
     try {
       await addCartItemsToDatabase(...item, quantity, totalPrice, user.email);
+      toast.success("Item added to cart");
     } catch (error) {
       console.error("error sending cartData to useCart", error);
     }
