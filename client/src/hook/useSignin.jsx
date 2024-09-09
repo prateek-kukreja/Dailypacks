@@ -16,11 +16,14 @@ export const useSignin = () => {
       );
     }, 5000);
 
-    const response = await fetch("http://localhost:3001/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "http://dailypacks.onrender.com/api/auth/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
     const res_data = await response.json();
 
     if (!response.ok) {

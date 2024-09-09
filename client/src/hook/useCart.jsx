@@ -8,7 +8,7 @@ export const useCart = () => {
     userEmail
   ) => {
     try {
-      await axios.post("http://localhost:3001/api/cart", {
+      await axios.post("https://dailypacks.onrender.com/api/cart", {
         ...item,
         quantity,
         totalPrice,
@@ -22,7 +22,7 @@ export const useCart = () => {
   const fetchCartByUser = async (userEmail) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/api/cart/${userEmail}`
+        `https://dailypacks.onrender.com/api/cart/${userEmail}`
       );
       return response.data;
     } catch (error) {
@@ -32,7 +32,7 @@ export const useCart = () => {
 
   const deleteCartItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/cart/${id}`);
+      await axios.delete(`https://dailypacks.onrender.com/api/cart/${id}`);
     } catch (error) {
       console.error("Error deleting cart item", error);
     }
