@@ -4,8 +4,13 @@ import { useParams } from "react-router-dom";
 import { items } from "../components/all-data/AllData";
 import { useState, useEffect } from "react";
 import TrendingSlider from "../components/TrendingSlider";
+import { useCart } from "../hook/useCart";
+import { useAuthContext } from "../hook/useAuthContext";
 
 function ProductPage() {
+  const { user } = useAuthContext();
+  const { addCartItemsToDatabase } = useCart();
+
   const { id } = useParams();
   const item = items.filter((item) => item.id === parseInt(id));
 
@@ -33,6 +38,25 @@ function ProductPage() {
 
   const calcPrice = (quantity) => {
     return quantity * item[0].price;
+  };
+
+  const handleAddToCart = async () => {
+    const totalPrice = calcPrice(quantity);
+
+    try {
+      await addCartItemsToDatabase(...item, quantity, totalPrice, user.email);
+    } catch (error) {
+      console.error("error sending cartData to useCart", error);
+    }
+
+    // cartDispatch({
+    //   type: "ADD_TO_CART",
+    //   payload: {
+    //     ...item,
+    //     quantity,
+    //     totalPrice: calcPrice(quantity),
+    //   },
+    // });
   };
 
   return (
@@ -99,7 +123,10 @@ function ProductPage() {
                 <p>₹{calcPrice(quantity)}</p>
               </div>
               <div className="flex flex-col md:flex-row justify-center gap-5">
-                <button className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent">
+                <button
+                  className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 border-2 border-solid border-black text-white bg-black hover:text-black hover:bg-transparent"
+                  onClick={handleAddToCart}
+                >
                   add to cart
                 </button>
                 <button className="w-full md:w-6/12 h-14 text-base uppercase font-bold cursor-pointer transition-all duration-200 bg-[#B6002C] text-white border-2 border-solid border-[#B6002C] hover:bg-transparent hover:text-[#B6002C]">

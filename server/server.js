@@ -3,6 +3,7 @@ dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import { router as authRouter } from "./routes/authRoutes.js";
+import { cartRouter } from "./routes/cartRoutes.js";
 
 import cors from "cors";
 
@@ -32,3 +33,4 @@ app.listen(port, () => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api", cartRouter);
