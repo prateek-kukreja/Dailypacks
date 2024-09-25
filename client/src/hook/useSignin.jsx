@@ -27,8 +27,6 @@ export const useSignin = () => {
     }
 
     if (response.ok) {
-      clearTimeout(interruptionMessage)
-
       // save the user to local storage
       localStorage.setItem('user', JSON.stringify(res_data))
 
