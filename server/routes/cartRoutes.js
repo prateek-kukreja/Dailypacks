@@ -1,6 +1,7 @@
 import express from "express";
 import { Cart } from "../models/cartModel.js";
 const cartRouter = express.Router();
+import { authenticateToken } from "../middleware/authMiddleware.js";
 
 cartRouter.post("/cart", async (req, res) => {
   const { name, img, quantity, totalPrice, userEmail } = req.body;
@@ -20,7 +21,7 @@ cartRouter.post("/cart", async (req, res) => {
   }
 });
 
-cartRouter.get("/cart/:userEmail", async (req, res) => {
+cartRouter.get("/cart/:userEmail", authenticateToken, async (req, res) => {
   const { userEmail } = req.params;
 
   try {
@@ -31,7 +32,7 @@ cartRouter.get("/cart/:userEmail", async (req, res) => {
   }
 });
 
-cartRouter.delete("/cart/:id", async (req, res) => {
+cartRouter.delete("/cart/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
 
   try {

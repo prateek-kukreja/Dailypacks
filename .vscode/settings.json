@@ -1,0 +1,5 @@
+{
+  "markdown.preview.typographer": false,
+  "prettier.semi": true,
+  "javascript.format.semicolons": "insert"
+}
