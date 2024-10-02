@@ -1,12 +1,13 @@
-import Banner from "../components/Banner";
-import BannerReverse from "../components/BannerReverse";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
-import Newsletter from "../components/Newsletter";
-import ProudProducts from "../components/ProudProducts";
-import TrendingSlider from "../components/TrendingSlider";
-import Banner1 from "../images/banner/scoot-backpack.png";
-import Banner2 from "../images/banner/way-backpack.png";
+import Banner from '../components/Banner'
+import BannerReverse from '../components/BannerReverse'
+import Footer from '../components/Footer'
+import Hero from '../components/Hero'
+import Newsletter from '../components/Newsletter'
+import ProudProducts from '../components/ProudProducts'
+import TrendingSlider from '../components/TrendingSlider'
+import Wrapup from '../components/Wrapup'
+import Banner1 from '../images/banner/scoot-backpack.png'
+import Banner2 from '../images/banner/way-backpack.png'
 
 function Home() {
   return (
@@ -26,8 +27,9 @@ function Home() {
       />
       <Newsletter />
       <Footer />
+      <Wrapup />
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

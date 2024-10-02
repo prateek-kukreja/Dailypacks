@@ -6,7 +6,7 @@ function Footer() {
         <h3 className="text-xl font-bold">that carry your day.</h3>
 
         <h6 className="mt-10">
-          Design by{" "}
+          Design by{' '}
           <a
             href="https://github.com/Abderraouf-Rahmani"
             target="_blank"
@@ -15,7 +15,7 @@ function Footer() {
           >
             abderraouf
           </a>
-          , all product images from{" "}
+          , all product images from{' '}
           <a
             href="https://www.dailyobjects.com/"
             target="_blank"
@@ -26,8 +26,9 @@ function Footer() {
           </a>
         </h6>
       </div>
+      <div></div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

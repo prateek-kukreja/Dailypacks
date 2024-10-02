@@ -1,23 +1,28 @@
-import Navbar from "./components/Navbar";
-import { Routes, Route, Navigate } from "react-router-dom";
-import All from "./components/categories-item/All";
-import Bask from "./components/categories-item/Bask";
-import Idyll from "./components/categories-item/Idyll";
-import Odyssey from "./components/categories-item/Odyssey";
-import Tarp from "./components/categories-item/Tarp";
-import Way from "./components/categories-item/Way";
-import Weekender from "./components/categories-item/Weekender";
-import Categories from "./pages/Categories";
-import Home from "./pages/Home";
-import ProductPage from "./pages/ProductPage";
-import Signin from "./pages/Sign_in";
-import { Outlet } from "react-router-dom";
-import Signup from "./pages/Sign_up";
-import { useAuthContext } from "./hook/useAuthContext";
-import { ToastContainer } from "react-toastify";
+import Navbar from './components/Navbar'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import All from './components/categories-item/All'
+import Bask from './components/categories-item/Bask'
+import Idyll from './components/categories-item/Idyll'
+import Odyssey from './components/categories-item/Odyssey'
+import Tarp from './components/categories-item/Tarp'
+import Way from './components/categories-item/Way'
+import Weekender from './components/categories-item/Weekender'
+import Categories from './pages/Categories'
+import Home from './pages/Home'
+import ProductPage from './pages/ProductPage'
+import Signin from './pages/Sign_in'
+import { Outlet } from 'react-router-dom'
+import Signup from './pages/Sign_up'
+import { useAuthContext } from './hook/useAuthContext'
+import { ToastContainer } from 'react-toastify'
+import PrivacyPolicy from './components/policy-pages/PrivacyPolicy'
+import CancellationandRefund from './components/policy-pages/CancellationandRefund'
+import ContactUs from './components/policy-pages/ContactUs'
+import ShippingandDelivery from './components/policy-pages/ShippingandDelivery'
+import TnC from './components/policy-pages/TnC'
 
 function App() {
-  const { user } = useAuthContext();
+  const { user } = useAuthContext()
 
   return (
     <>
@@ -58,12 +63,25 @@ function App() {
             </Route>
           )}
           {user && (
-            <Route path="categories/product/:id" element={<ProductPage />} />
+            <>
+              <Route path="categories/product/:id" element={<ProductPage />} />
+              <Route path="privacy_policy" element={<PrivacyPolicy />} />
+              <Route
+                path="cancellation_and_refund"
+                element={<CancellationandRefund />}
+              />
+              <Route path="contact_us" element={<ContactUs />} />
+              <Route
+                path="shipping_and_delivery"
+                element={<ShippingandDelivery />}
+              />
+              <Route path="tnc" element={<TnC />} />
+            </>
           )}
         </Route>
       </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
