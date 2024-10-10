@@ -1,53 +1,73 @@
-import Newsletter from "../components/Newsletter";
-import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
-import { items } from "../components/all-data/AllData";
-import { useState, useEffect } from "react";
-import TrendingSlider from "../components/TrendingSlider";
-import { useCart } from "../hook/useCart";
-import { useAuthContext } from "../hook/useAuthContext";
-import { toast } from "react-toastify";
+import Newsletter from '../components/Newsletter'
+import Footer from '../components/Footer'
+import { useParams } from 'react-router-dom'
+import { items } from '../components/all-data/AllData'
+import { useState, useEffect } from 'react'
+import TrendingSlider from '../components/TrendingSlider'
+import { useCart } from '../hook/useCart'
+import { useAuthContext } from '../hook/useAuthContext'
+import { toast } from 'react-toastify'
 
 function ProductPage() {
+  const { user } = useAuthContext();
+  const { addCartItemsToDatabase } = useCart();
   const { user } = useAuthContext();
   const { addCartItemsToDatabase } = useCart();
 
   const { id } = useParams();
   const item = items.filter((item) => item.id === parseInt(id));
+  const { id } = useParams();
+  const item = items.filter((item) => item.id === parseInt(id));
 
   const [image, setImage] = useState(item[0].img);
+  const [image, setImage] = useState(item[0].img);
   const changeImage = (e) => {
+    setImage(e.target.src);
+  };
     setImage(e.target.src);
   };
 
   useEffect(() => {
     image;
   }, [id]);
+    image;
+  }, [id]);
 
+  const [quantity, setQuantity] = useState(1);
   const [quantity, setQuantity] = useState(1);
   const increase = () => {
     if (quantity >= 1) {
       setQuantity(quantity + 1);
+      setQuantity(quantity + 1);
     }
+  };
   };
 
   const decrease = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      setQuantity(quantity - 1);
     }
+  };
   };
 
   const calcPrice = (quantity) => {
     return quantity * item[0].price;
   };
+    return quantity * item[0].price;
+  };
 
   const handleAddToCart = async () => {
+    const totalPrice = calcPrice(quantity);
     const totalPrice = calcPrice(quantity);
 
     try {
       await addCartItemsToDatabase(...item, quantity, totalPrice, user.email);
       toast.success("Item added to cart");
+      await addCartItemsToDatabase(...item, quantity, totalPrice, user.email);
+      toast.success("Item added to cart");
     } catch (error) {
+      console.error("error sending cartData to useCart", error);
       console.error("error sending cartData to useCart", error);
     }
 
@@ -59,6 +79,7 @@ function ProductPage() {
     //     totalPrice: calcPrice(quantity),
     //   },
     // });
+  };
   };
 
   return (

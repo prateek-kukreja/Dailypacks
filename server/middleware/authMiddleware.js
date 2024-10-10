@@ -1,9 +1,10 @@
 import jwt from "jsonwebtoken";
+import { User } from "../models/userModel.js";
 
-const authenticateToken = (req, res, next) => {
-  const { authorization } = req.headers;
-
-  const token = authorization.split(" ")[1];
+const authenticateToken = async (req, res, next) => {
+  // Get the token from the request header
+  const token = req.header("Authorization")?.split(" ")[1];
+  console.log(token);
 
   if (!token) {
     return res
@@ -12,12 +13,22 @@ const authenticateToken = (req, res, next) => {
   }
 
   try {
-    const payload = jwt.verify(token, process.env.SECRET_KEY);
-    console.log(payload);
+    // Verify the token
+    const { _id } = jwt.verify(token, process.env.SECRET_KEY);
+
+    const user = await User.findOne({ _id });
+    if (!user) {
+      return res.status(401).json({ message: "User not found." });
+    }
+
+    // Attach user information to the request object
+    req.user = user;
+
+    next();
   } catch (error) {
-    console.error(error);
-    res.status(401).json({ message: "Request is not authorizated" });
+    console.error("Token verification error:", error); // Log the error for debugging
+    return res.status(403).json({ message: "Invalid or expired token." });
   }
 };
 
-module.exports = authenticateToken;
+export { authenticateToken };

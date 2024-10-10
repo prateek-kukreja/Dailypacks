@@ -3,6 +3,7 @@ import { useAuthContext } from "../hook/useAuthContext";
 
 export const useCart = () => {
   const { user } = useAuthContext();
+  const { token } = user;
 
   const addCartItemsToDatabase = async (
     item,
@@ -21,7 +22,7 @@ export const useCart = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${user}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -36,7 +37,7 @@ export const useCart = () => {
         `https://dailypacks.onrender.com/api/cart/${userEmail}`,
         {
           headers: {
-            Authorization: `Bearer ${user}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -50,7 +51,7 @@ export const useCart = () => {
     try {
       await axios.delete(`https://dailypacks.onrender.com/api/cart/${id}`, {
         headers: {
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${token}`,
         },
       });
     } catch (error) {
